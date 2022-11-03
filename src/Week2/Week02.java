@@ -20,7 +20,7 @@ public class Week02
         System.out.println();
 
         do7TimesTable();
-        //doConvertGrade();
+        doConvertGrade();
     }
 
     public static void do7TimesTable()
@@ -46,7 +46,8 @@ public class Week02
         {
             System.out.println("Your grade is First Class");
         }
-        else if(value.equals("B")) value = "A";
+
+        else if(value.equals("B")) value = "B";
         {
             System.out.println("Your grade is Upper Second Class");
         }
@@ -55,8 +56,6 @@ public class Week02
         {
             System.out.println("Loser");
         }
-
-        letter = value.charAt(0); letter = A; value = "A";
 
     }
 }
