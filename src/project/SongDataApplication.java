@@ -1,29 +1,34 @@
 package project;
 
-import SongDataList;
 import java.util.ArrayList;
 import helpers.InputReader;
 
 public class SongDataApplication {
 
-    private ArrayList<Song> songs;
+    private ArrayList<SongDataList> songs;
 
-    public MusicApp()
+    public SongDataApplication()
     {
-        songs = new ArrayList<Song>();
+        songs = new ArrayList<>();
         addSomeSongs();
         doMainMenu();
     }
 
     private void addSomeSongs()
     {
-        Song song = new Song("Beautiful", "Anne-Marie", 863015);
+        SongDataList song = new SongDataList("Riot", "Hollywood Undead", 60691727);
         songs.add(song);
 
-        song = new Song("Bad Habits", "Ed Sheeran", 127191452);
+        song = new SongDataList("Ain't No Rest for the Wicked", "Cage The Elephant", 519950858);
         songs.add(song);
 
-        song = new Song("Halo", "Beyonce", 991888598);
+        song = new SongDataList("You're Gonna Go Far, Kid", "The Offspring", 655020847);
+        songs.add(song);
+
+        song = new SongDataList("Don't You Dare (Make Me Fall In Love With You", "Kaden MacKay", 1807397);
+        songs.add(song);
+
+        song = new SongDataList("Kill the Director", "The Wombats", 86837876);
         songs.add(song);
     }
 
@@ -48,9 +53,9 @@ public class SongDataApplication {
 
     private void displayMenu()
     {
-        System.out.println("\n 1. Add Student");
-        System.out.println(" 2. Delete Student");
-        System.out.println(" 3. Print All Students");
+        System.out.println("\n 1. Add a song to the library");
+        System.out.println(" 2. Delete a song from the library");
+        System.out.println(" 3. Print all songs in the library");
         System.out.println(" 4. Quit\n");
 
     }
@@ -64,10 +69,10 @@ public class SongDataApplication {
     {
         System.out.println(" \nAdding a Song\n");
         String title = InputReader.getString("Please enter the song title >");
-        String name = InputReader.getString("Please enter the artist name  >");
-        int count = InputReader.getInt("Please enter the play count > ");
+        String artist = InputReader.getString("Please enter the artist artist  >");
+        int streams = InputReader.getInt("Please enter the play count > ");
 
-        Song song = new Song(title, name, count);
+        SongDataList song = new SongDataList(title, artist, streams);
         songs.add(song);
     }
 
@@ -76,7 +81,7 @@ public class SongDataApplication {
 
     }
 
-    private Student findSong()
+    private SongDataList findSong()
     {
         return null;
     }
@@ -86,7 +91,7 @@ public class SongDataApplication {
         System.out.println("\nPrinting All Songs\n");
         int count = 0;
 
-        for(Song song : songs)
+        for(SongDataList song : songs)
         {
             count++;
             System.out.print("Song " + count + ": ");

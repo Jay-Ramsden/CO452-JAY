@@ -9,7 +9,7 @@ public class SongDataList {
 
     private int playCount;
 
-    public Song(String title, String artist, int streams)
+    public SongDataList(String title, String artist, int streams)
     {
         this.title = title;
         this.artist = artist;
