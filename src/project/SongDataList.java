@@ -18,6 +18,6 @@ public class SongDataList {
 
     public void print()
     {
-        System.out.println(title + " by " + artist + " plays: " + playCount);
+        System.out.println(title + " by " + artist + " plays: " + this.playCount);
     }
 }

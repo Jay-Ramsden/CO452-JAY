@@ -9,7 +9,7 @@ import project.SongDataList;
  */
 public class SongDataApplication {
 
-    private ArrayList<SongDataList> songs;
+    public ArrayList<SongDataList> songs;
 
     public SongDataApplication()
     {
@@ -26,7 +26,7 @@ public class SongDataApplication {
     /**
      * addSomeSongs() -> adds 10 preset songs to the library to start with
      */
-    private void addSomeSongs()
+    public void addSomeSongs()
     {
         SongDataList song = new SongDataList("Riot", "Hollywood Undead", 60691727);
         songs.add(song);
@@ -78,7 +78,7 @@ public class SongDataApplication {
                 case 1: addSong();break;
                 case 2: deleteSong();break;
                 case 3: printSongs();break;
-                case 4: findSongs();
+                /***case 4: findSongs();***/
                 case 5: wantToQuit = true; break;
             }
         }
@@ -126,14 +126,26 @@ public class SongDataApplication {
     private void deleteSong()
     {
         System.out.println(" /nDeleting a Song from the Library/n");
-        printSongs();
+        int count = 0;
+
+        for(SongDataList song : songs)
+        {
+            count++;
+            System.out.print("Song " + count + ": ");
+            song.print();
+        }
         int selectedSong = InputReader.getInt("Please enter the number of the song you would like to delete > ");
         int deletingSong = selectedSong - 1;
         songs.remove(deletingSong);
         System.out.println("You have successfully removed that song from the library.");
-        printSongs();
-        System.out.println("Returning to main menu...");
-        doMainMenu();
+        count = 0;
+
+        for(SongDataList song : songs)
+        {
+            count++;
+            System.out.print("Song " + count + ": ");
+            song.print();
+        }
     }
 
     /**
@@ -142,7 +154,7 @@ public class SongDataApplication {
      */
     private void printSongs()
     {
-        System.out.println(" \nPrinting All Songs\n");
+        System.out.println(" Printing All Songs");
         int count = 0;
 
         for(SongDataList song : songs)
@@ -156,15 +168,15 @@ public class SongDataApplication {
         doMainMenu();
     }
 
-    private void findSongs()
+   /*** private void findSongs()
     {
         System.out.println(" \nPrinting Songs above X Streams\n");
         int requiredStreams = InputReader.getInt("Enter the required amount of streams to ");
         int count = 0;
-        int streams = int song.streams;
 
         for(SongDataList song : songs)
         {
+            int streams = songs.indexOf(song.streams);
             if (requiredStreams < streams)
             {
                 count++;
@@ -175,5 +187,5 @@ public class SongDataApplication {
 
         System.out.println("Returning to main menu...");
         doMainMenu();
-    }
+    } ***/
 }
